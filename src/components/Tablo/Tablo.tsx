@@ -5,8 +5,10 @@ import tablo from './Tablo.module.css';
 
 type TabloProps = {
     toggle:()=>void
-    value:number
-    setText:(text:number)=>void
+    start:number
+    max:number
+    setStart:(start:number)=>void
+    setMax:(max:number)=>void
 }
 
 export const Tablo = (props:TabloProps) => {
@@ -16,7 +18,11 @@ export const Tablo = (props:TabloProps) => {
     }
 
     const onChangeStart = (e:ChangeEvent<HTMLInputElement>)=>{
-        props.setText(Number(e.currentTarget.value))
+        props.setStart(Number(e.currentTarget.value))
+    }
+
+    const onChangeMax = (e:ChangeEvent<HTMLInputElement>)=>{
+        props.setMax(Number(e.currentTarget.value))
     }
 
     return (
@@ -24,17 +30,20 @@ export const Tablo = (props:TabloProps) => {
             <div className={tablo.value}>
                 <div className={tablo.start}>Start value:
                     <input
+                        style={props.start < 0 ? {backgroundColor: 'green'}: undefined}
                         className={tablo.input_start}
                         type={'number'}
-                        value={props.value}
+                        value={props.start}
                         onChange={onChangeStart}
                     />
                 </div>
                 <div>Max value:
                     <input
+                        style={props.max < 0 ? {backgroundColor: 'green'}: undefined}
                         className={tablo.input_max}
                         type={'number'}
-                        // value={props.value}
+                        value={props.max}
+                        onChange={onChangeMax}
                     />
                 </div>
             </div>

@@ -9,9 +9,10 @@ export const App = () => {
 
     const [value, setValue]=useState(0)
     const [style, setStyle]=useState(true)
-    const [text, setText]=useState(0)
+    const [start, setStart]=useState(0)
+    const [max, setMax]=useState(0)
 
-    console.log(text)
+    // console.log(start)
     const valueINC = () => {
         setValue(value+1)
     }
@@ -21,6 +22,7 @@ export const App = () => {
     }
 
     const toggle = ()=>{
+        console.log('log')
         setStyle(!style)
     }
 
@@ -36,8 +38,10 @@ export const App = () => {
             <div style={style ? {display: 'none'} : undefined} className={tablo.wrapper}>
                 <Tablo
                     toggle={toggle}
-                    value={text}
-                    setText={setText}
+                    start={start}
+                    setStart={setStart}
+                    max={max}
+                    setMax={setMax}
                 />
             </div>
         </div>
