@@ -1,0 +1,39 @@
+.wrapper{
+    width: 300px;
+    height: 200px;
+    margin: 170px 500px;
+    background-color: lightseagreen;
+    border-radius: 10px;
+    border: 2px solid greenyellow;
+    display: none;
+}
+.mini_wrapper{
+
+}
+.value{
+    width: 280px;
+    height: 100px;
+    margin: 5px 10px;
+    background-color: crimson;
+    border-radius: 10px;
+    display: inline-block;
+    border: 2px solid greenyellow;
+}
+.button_wrapper{
+    width: 280px;
+    height: 75px;
+    display: flex;
+    margin: 0 auto;
+    background-color: green;
+    border-radius: 10px;
+    border: 2px solid greenyellow;
+}
+.inc{
+    margin: 25px 20px;
+}
+.dec{
+    margin: 25px 20px;
+}
+.sec{
+    margin: 25px 20px;
+}
