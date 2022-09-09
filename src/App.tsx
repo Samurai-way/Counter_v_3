@@ -3,10 +3,12 @@ import app from './App.module.css';
 import {Counter} from "./components/Counter/Counter";
 import {Tablo} from "./components/Tablo/Tablo";
 import counter from './components/Counter/Counter.module.css'
+import tablo from './components/Tablo/Tablo.module.css';
 
 export const App = () => {
 
     const [value, setValue]=useState(0)
+    const [style, setStyle]=useState(true)
 
     const valueINC = () => {
         setValue(value+1)
@@ -16,16 +18,21 @@ export const App = () => {
         setValue(0)
     }
 
+    const toggle = ()=>{
+        setStyle(!style)
+    }
+
     return (
         <div className={app.wrapper}>
-            <div className={counter.wrapper}>
+            <div style={style ? {display: 'block'} : undefined} className={counter.wrapper}>
                 <Counter value={value}
                          valueINC={valueINC}
                          valueDEC={valueDEC}
+                         toggle={toggle}
                 />
             </div>
-            <div>
-                <Tablo/>
+            <div style={style ? {display: 'none'} : undefined} className={tablo.wrapper}>
+                <Tablo toggle={toggle}/>
             </div>
         </div>
     );
