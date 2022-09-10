@@ -4,6 +4,7 @@ import button from './Button.module.css'
 type UniversalButtonProps = {
     name: string
     onClick:()=>void
+    disabled?:boolean
 }
 
 export const UniversalButton = (props:UniversalButtonProps) => {
@@ -13,6 +14,11 @@ export const UniversalButton = (props:UniversalButtonProps) => {
     }
 
     return (
-        <button className={button.button} onClick={onClickHandler}>{props.name}</button>
+        <button
+            disabled={props.disabled}
+            className={button.button}
+            onClick={onClickHandler}>
+            {props.name}
+        </button>
     );
 };

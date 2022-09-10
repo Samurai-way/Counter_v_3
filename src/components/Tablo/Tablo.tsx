@@ -9,12 +9,16 @@ type TabloProps = {
     max:number
     setStart:(start:number)=>void
     setMax:(max:number)=>void
+    setDisabled:(disabled:boolean)=>void
 }
 
 export const Tablo = (props:TabloProps) => {
 
     const toggleCLICK = ()=>{
         props.toggle()
+        if(props.start < 0 || props.max < 0 || props.max < props.start){
+            props.setDisabled(true)
+        }
     }
 
     const onChangeStart = (e:ChangeEvent<HTMLInputElement>)=>{
@@ -30,7 +34,7 @@ export const Tablo = (props:TabloProps) => {
             <div className={tablo.value}>
                 <div className={tablo.start}>Start value:
                     <input
-                        style={props.start < 0 ? {backgroundColor: 'green'}: undefined}
+                        style={props.start < 0 ? {backgroundColor: 'red'}: undefined}
                         className={tablo.input_start}
                         type={'number'}
                         value={props.start}
@@ -39,7 +43,7 @@ export const Tablo = (props:TabloProps) => {
                 </div>
                 <div>Max value:
                     <input
-                        style={props.max < 0 ? {backgroundColor: 'green'}: undefined}
+                        style={props.max < 0 ? {backgroundColor: 'red'}: undefined}
                         className={tablo.input_max}
                         type={'number'}
                         value={props.max}

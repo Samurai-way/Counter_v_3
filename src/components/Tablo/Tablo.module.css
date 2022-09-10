@@ -2,9 +2,9 @@
     width: 300px;
     height: 200px;
     margin: 170px 500px;
-    background-color: lightseagreen;
+    background-color: black;
     border-radius: 10px;
-    border: 2px solid greenyellow;
+    border: 2px solid hotpink;
     display: block;
 }
 .mini_wrapper{
@@ -14,19 +14,19 @@
     width: 280px;
     height: 100px;
     margin: 5px 10px;
-    background-color: crimson;
+    background-color: black;
     border-radius: 10px;
     display: inline-block;
-    border: 2px solid greenyellow;
+    border: 2px solid hotpink;
+    color: red;
 }
 .button_wrapper{
     width: 280px;
     height: 75px;
     display: flex;
     margin: 0 auto;
-    background-color: green;
     border-radius: 10px;
-    border: 2px solid greenyellow;
+    border: 2px solid red;
 }
 
 .sec{

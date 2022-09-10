@@ -8,10 +8,13 @@ type CounterPropsType = {
     valueINC:()=>void
     valueDEC:()=>void
     toggle:()=>void
-
+    disabled:boolean
+    max: number
 }
 
 export const Counter = (props: CounterPropsType) => {
+
+    const style = props.value === props.max ? {color : 'red'} : {color : 'white'}
 
     const increment = () => {
         props.valueINC()
@@ -27,13 +30,15 @@ export const Counter = (props: CounterPropsType) => {
 
     return (
         <div className={counter.mini_wrapper}>
-            <div className={counter.value}>
+            <div style={style}
+                 className={counter.value}>
                 <UniversalValue value={props.value}/>
             </div>
             <div className={counter.button_wrapper}>
             <div className={counter.inc}>
                 <UniversalButton name={'inc'}
                                  onClick={increment}
+                                 disabled={props.disabled}
                 />
             </div>
             <div className={counter.dec}>

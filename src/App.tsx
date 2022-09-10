@@ -11,18 +11,28 @@ export const App = () => {
     const [style, setStyle]=useState(true)
     const [start, setStart]=useState(0)
     const [max, setMax]=useState(0)
+    const [disabled, setDisabled]=useState(false)
 
-    // console.log(start)
     const valueINC = () => {
         setValue(value+1)
+        if(value+1 === max){
+            setDisabled(!disabled)
+        }
     }
 
     const valueDEC = () => {
         setValue(0)
+        setDisabled(false)
     }
 
     const toggle = ()=>{
-        console.log('log')
+        localStorage.setItem('saveValue:', JSON.stringify(start))
+        localStorage.setItem('maxValue:', JSON.stringify(max))
+        let str = localStorage.getItem('saveValue:')
+        if(str) {
+            let newValue = JSON.parse(str)
+            setValue(newValue)
+        }
         setStyle(!style)
     }
 
@@ -33,6 +43,8 @@ export const App = () => {
                          valueINC={valueINC}
                          valueDEC={valueDEC}
                          toggle={toggle}
+                         disabled={disabled}
+                         max={max}
                 />
             </div>
             <div style={style ? {display: 'none'} : undefined} className={tablo.wrapper}>
@@ -42,6 +54,7 @@ export const App = () => {
                     setStart={setStart}
                     max={max}
                     setMax={setMax}
+                    setDisabled={setDisabled}
                 />
             </div>
         </div>
