@@ -15,6 +15,8 @@ type TabloProps = {
 export const Tablo = (props:TabloProps) => {
 
     const toggleCLICK = ()=>{
+        props.setDisabled(false)
+        props.setStart(0)
         props.toggle()
         if(props.start < 0 || props.max < 0 || props.max < props.start){
             props.setDisabled(true)
